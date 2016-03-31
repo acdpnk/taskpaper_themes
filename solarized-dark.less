@@ -1,0 +1,157 @@
+@solarized_base03: #002b36; // background
+@solarized_base02: #073642; // background highlights
+@solarized_base01: #586e75; // comments / secondary content
+@solarized_base00: #657b83;
+@solarized_base0: #839496; // body text / default code / primary content
+@solarized_base1: #93a1a1; // optional emphasized content
+@solarized_base2: #eee8d5;
+@solarized_base3: #fdf6e3;
+@solarized_yellow: #b58900;
+@solarized_orange: #cb4b16;
+@solarized_red: #dc322f;
+@solarized_magenta: #d33682;
+@solarized_violet: #6c71c4;
+@solarized_blue: #268bd2;
+@solarized_cyan: #2aa198;
+@solarized_green: #859900;
+
+// UI Scale
+@base-font-size: 16;
+@user-font-size: $USER_FONT_SIZE;
+@ui-scale: @user-font-size / @base-font-size;
+
+// UI Colors
+@tint-color: @solarized_cyan;
+@selection-color: mix(@tint-color, @background-color, 30%); // rgb(148, 192, 255);
+@invisibles-color: @solarized_base01; // rgb(67, 119, 211);
+
+// Base text
+@text-color: @solarized_base0;
+@background-color: @solarized_base03;
+@font-family: Source Sans Pro;
+@line-height-multiple: 1.1;
+
+editor {
+  color: @solarized_base0;
+  font-size: @user-font-size;
+  font-family: @font-family;
+  background-color: @background-color;
+  line-height-multiple: @line-height-multiple;
+
+  item-indent: 20px * @ui-scale;
+  caret-width: 2px;
+  caret-color: @tint-color;
+  drop-indicator-color: @tint-color;
+  invisibles-color: @invisibles-color;
+  selection-background-color: @selection-color;
+  guide-line-color: mix(@tint-color, @background-color, 40%);
+  message-color: mix(@tint-color, @background-color, 50%);
+}
+
+sidebar {
+  search-item-prefix: "🔎 ";
+}
+
+item {
+  handle-color: mix(@tint-color, @background-color, 50%);
+}
+
+item[empty] {
+    handle-color: @background-color;
+}
+
+item[collapsed] {
+  handle-color: @tint-color;
+}
+
+item[data-type="note"] {
+  font-style: italic;
+  color: @solarized_base01;
+}
+
+item[data-type="task"] {
+  font-style: normal;
+}
+
+item[data-type="project"] {
+  color: @solarized_base1;
+  font-weight: normal;
+  font-size: @base-font-size * 1.4;
+  handle-color: mix(@solarized_magenta, @background-color, 50%);
+}
+
+item[data-type="project"][collapsed] {
+    handle-color: @solarized_magenta;
+}
+
+item[data-done] {
+  > run[display] {
+    text-strikethrough: NSUnderlineStyleSingle;
+    text-strikethrough-color: @text-color;
+  }
+}
+
+run[link] {
+  cursor: pointer;
+  color: @tint-color;
+}
+
+run[link^="button"] {
+  color: @text-color;
+}
+
+run[link^="filter"] {
+  color: @text-color;
+}
+
+run[tag] {
+  font-size: @user-font-size;
+  font-style: normal;
+  font-weight: normal;
+  color: @solarized_blue;
+}
+
+item[data-bug] {
+    // color: @solarized_violet;
+}
+
+run[tag='data-done'] {
+    color: @solarized_base01;
+}
+
+run[tag='data-bug'] {
+    color: @solarized_red;
+}
+
+item[data-cancelled] {
+    color: @solarized_base01;
+  > run[display] {
+        text-strikethrough: NSUnderlineStyleSingle;
+        text-strikethrough-color: @solarized_base01;
+  }
+}
+
+run[tag='data-cancelled'] {
+    color: @solarized_base01;
+}
+
+item[data-important] {
+    color: @solarized_red;
+}
+
+run[tag='data-important'] {
+    color: @solarized_red;
+    font-weight: bold;
+}
+
+item[data-today] {
+    // color: @solarized_violet;
+}
+
+run[tag='data-today'] {
+    color: @solarized_green;
+}
+
+run[tag='data-later'] {
+    color: @solarized_violet;
+}
