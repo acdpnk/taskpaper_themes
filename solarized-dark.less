@@ -24,6 +24,7 @@
 @tint-color: @solarized_cyan;
 @selection-color: mix(@tint-color, @background-color, 30%); // rgb(148, 192, 255);
 @invisibles-color: @solarized_base01; // rgb(67, 119, 211);
+@emphasized-color: @solarized_base1;
 
 // Base text
 @text-color: @solarized_base0;
@@ -32,7 +33,7 @@
 @line-height-multiple: 1.1;
 
 editor {
-  color: @solarized_base0;
+  color: @text-color;
   font-size: @user-font-size;
   font-family: @font-family;
   background-color: @background-color;
@@ -66,7 +67,7 @@ item[collapsed] {
 
 item[data-type="note"] {
   font-style: italic;
-  color: @solarized_base01;
+  color: @invisibles-color;
 }
 
 item[data-type="task"] {
@@ -74,7 +75,7 @@ item[data-type="task"] {
 }
 
 item[data-type="project"] {
-  color: @solarized_base1;
+  color: @emphasized-color;
   font-weight: normal;
   font-size: @base-font-size * 1.4;
   handle-color: mix(@solarized_magenta, @background-color, 50%);
@@ -116,7 +117,7 @@ item[data-bug] {
 }
 
 run[tag='data-done'] {
-    color: @solarized_base01;
+    color: @invisibles-color;
 }
 
 run[tag='data-bug'] {
@@ -124,19 +125,19 @@ run[tag='data-bug'] {
 }
 
 item[data-cancelled] {
-    color: @solarized_base01;
+    color: @invisibles-color;
   > run[display] {
         text-strikethrough: NSUnderlineStyleSingle;
-        text-strikethrough-color: @solarized_base01;
+        text-strikethrough-color: @invisibles-color;
   }
 }
 
 run[tag='data-cancelled'] {
-    color: @solarized_base01;
+    color: @invisibles-color;
 }
 
 item[data-important] {
-  color: @solarized_base1;
+  color: @emphasized-color;
 }
 
 run[tag='data-important'] {
@@ -166,4 +167,8 @@ run[tag='data-doing'] {
 
 item[data-search] {
   font-weight: bold;
+}
+
+run[tag='data-next'] {
+  color: @solarized_magenta
 }
