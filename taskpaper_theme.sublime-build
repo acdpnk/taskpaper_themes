@@ -1,0 +1,7 @@
+// copy into Packages directory or add to sublime-project file
+{
+    // note: Prototype, change $HOME to your home folder
+    "name": "Copy to TaskPaper Application Folder",
+    "selector": "source.less",
+    "shell_cmd": "cp $file \"$HOME/Library/Application Support/TaskPaper/theme.less\""
+}
